@@ -6,7 +6,9 @@
     </div>
   
     <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-1" action="#" method="POST">
+      <form class="space-y-1" action="{{route("products.store")}}" method="POST">
+        @csrf
+        @method('post')
         <div>
           <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Product Name</label>
           <div class="mt-2">
