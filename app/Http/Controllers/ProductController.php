@@ -8,7 +8,11 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index (){
-        return view('products.index');    
+        //This line will fecth all the data from the database
+        $products = Product::all();
+        //This display the data to view
+        return view('products.index', ['products' => $products]);    
+       
     }  
     
     public function create (){
@@ -23,8 +27,10 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'quantity' => 'required | numeric',
-            'price' => 'required | decimal:2',
+            'price' => 'required | decimal:0,2',
             'description' => 'nullable',
+   
+
 
         ]);
             //This save the create new product submission into database
